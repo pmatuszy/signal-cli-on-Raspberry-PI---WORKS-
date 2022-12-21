@@ -61,4 +61,3 @@ chmod 755 -R /opt/signal-cli-${VERSION} ; echo $?
 chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
 )
 
-![image](https://user-images.githubusercontent.com/58336955/208840014-6d79a9de-952e-4514-a73e-db23097d2e6f.png)
