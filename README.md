@@ -3,7 +3,7 @@ Instructions how to install signal-cli on Raspberry Pi - this one WORKS
 
 
 ## newest version is here: https://github.com/AsamK/signal-cli/releases
-``export VERSION=0.11.6
+``export VERSION=0.11.6<br>
 katalog_do_kompilowania_temp=/mnt/luks-raid1-16tb/temp
 ``
 (
