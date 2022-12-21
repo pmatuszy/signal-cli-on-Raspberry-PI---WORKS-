@@ -1,6 +1,8 @@
-# signal-cli-on-Raspberry-PI---WORKS-
+# signal-cli-on-Raspberry-PI THIS ONE WORKS
+
 Instructions how to install signal-cli on Raspberry Pi - this one WORKS
 
+After many attempts I finally wrote the procedure which you can just follow and get your signal-cli 
 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
