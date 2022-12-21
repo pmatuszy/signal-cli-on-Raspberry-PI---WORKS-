@@ -2,29 +2,36 @@
 Instructions how to install signal-cli on Raspberry Pi - this one WORKS
 
 
-## newest version is here: https://github.com/AsamK/signal-cli/releases
-```
+ newest version is here: https://github.com/AsamK/signal-cli/releases
+```console
 export VERSION=0.11.6
 katalog_do_kompilowania_temp=/mnt/luks-raid1-16tb/temp
 ```
 
-```
+```console
 (
 echo ; echo "VERSION = $VERSION" 
 echo "katalog_do_kompilowania_temp = $katalog_do_kompilowania_temp" ; echo 
 )
 ```
+
+```console
 (
 apt install -y curl zip protobuf-compiler clang libclang-dev cmake make
 apt install -y openjdk-17-jdk
 )
+```
 
+```console
 cd /opt
 rm -v signal-cli-"${VERSION}"-Linux.tar.gz* /opt/signal-cli 2>/dev/null
+```
 
+```console
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}"-Linux.tar.gz
 tar xf signal-cli-"${VERSION}"-Linux.tar.gz -C /opt
 rm -v signal-cli-"${VERSION}"-Linux.tar.gz
+```
 
 (
 ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/
