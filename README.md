@@ -43,6 +43,7 @@ wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-
 tar xf signal-cli-"${VERSION}".tar.gz -C /opt
 rm -v signal-cli-"${VERSION}".tar.gz
 }
+#
 ```
 ```console
 (
