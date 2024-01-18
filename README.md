@@ -38,9 +38,11 @@ rm -v signal-cli-"${VERSION}"-Linux.tar.gz* /opt/signal-cli 2>/dev/null
 ```
 
 ```console
+{
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}"-Linux-native.tar.gz
 tar xf signal-cli-"${VERSION}"-Linux.tar.gz -C /opt
 rm -v signal-cli-"${VERSION}"-Linux.tar.gz
+}
 ```
 ```console
 (
