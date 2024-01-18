@@ -7,7 +7,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
 export VERSION=0.11.6
-katalog_do_kompilowania_temp=/mnt/luks-raid1-16tb/temp
+katalog_do_kompilowania_temp=/tmp
 ```
 
 ```console
