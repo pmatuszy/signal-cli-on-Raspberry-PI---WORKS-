@@ -10,7 +10,9 @@ After many attempts I finally wrote the procedure which you can just follow and 
 export VERSION=0.12.7
 temp_catalog=/tmp
 }
+download the latest version of protoc from:
 
+https://github.com/protocolbuffers/protobuf/releases
 ```
 
 ```console
