@@ -6,7 +6,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
-export VERSION=0.11.6
+export VERSION=0.12.7
 temp_catalog=/tmp
 ```
 
