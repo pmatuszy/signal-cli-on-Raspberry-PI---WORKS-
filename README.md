@@ -14,34 +14,34 @@ temp_catalog=/tmp
 ```
 
 ```console
-(
+{
 echo ; echo "VERSION = $VERSION" 
 echo "temp_catalog = $temp_catalog" ; echo 
-)
-
-```
-
-```console
-(
-apt install -y curl zip protobuf-compiler clang libclang-dev cmake make
-apt install -y openjdk-17-jdk
-)
-
-```
-
-```console
-{
-cd /opt
-rm -v signal-cli-"${VERSION}"-Linux.tar.gz* /opt/signal-cli 2>/dev/null
 }
 
 ```
 
 ```console
 {
-wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}"-Linux-native.tar.gz
-tar xf signal-cli-"${VERSION}"-Linux-native.tar.gz -C /opt
-rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz
+apt install -y curl zip protobuf-compiler clang libclang-dev cmake make
+apt install -y openjdk-17-jdk
+}
+
+```
+
+```console
+{
+cd /opt
+rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null
+}
+
+```
+
+```console
+{
+wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}".tar.gz
+tar xf signal-cli-"${VERSION}".tar.gz -C /opt
+rm -v signal-cli-"${VERSION}".tar.gz
 }
 ```
 ```console
@@ -59,9 +59,11 @@ curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch
 export PATH=$PATH:$HOME/.cargo/bin
 ```
 ```console
+{
 mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-install
 export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g')
-echo ; echo "LIBVERSION = $LIBVERSION" ; echo 
+echo ; echo "LIBVERSION = $LIBVERSION" ; echo
+}
 ```
 ```console
 {
