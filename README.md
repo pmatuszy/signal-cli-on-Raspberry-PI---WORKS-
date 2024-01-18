@@ -64,6 +64,7 @@ export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth
 echo ; echo "LIBVERSION = $LIBVERSION" ; echo 
 ```
 ```console
+{
 wget https://github.com/signalapp/libsignal/archive/refs/tags/v"${LIBVERSION}".tar.gz ; echo $?
 mv -v v"${LIBVERSION}".tar.gz ${temp_catalog}/signal-cli-install
 tar xzf ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar.gz -C ${temp_catalog}/signal-cli-install/ && mv ${temp_catalog}/signal-cli-install/libsignal-"${LIBVERSION}" libsignal
@@ -73,6 +74,7 @@ sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/jav
 ${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop
 zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so
 zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so
+}
 ```
 
 ```console
@@ -85,10 +87,10 @@ cp -v ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.
 rm -rv ${temp_catalog}/signal-cli-install
 ```
 ```console
-(
+{
 chown root:root /usr/java/packages/lib/libsignal_jni.so ; echo $?
 chmod 755 /usr/java/packages/lib/libsignal_jni.so ; echo $?
 chmod 755 -R /opt/signal-cli-${VERSION} ; echo $?
 chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
-)
+}
 ```
