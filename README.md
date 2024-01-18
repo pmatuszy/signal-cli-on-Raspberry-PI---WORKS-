@@ -8,6 +8,8 @@ After many attempts I finally wrote the procedure which you can just follow and 
 ```console
 {
 export VERSION=0.12.7
+export PROTOC_VERSION=25.2
+export PROTOC_ARCHITECTURE=aarch_64
 temp_catalog=/tmp
 }
 download the latest version of protoc from:
@@ -38,6 +40,17 @@ rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null
 }
 
 ```
+
+install the latest version of protoc
+
+{
+PROTOC_ZIP=protoc-${PROTOC_VERSION}-linux-${PROTOC_ARCHITECTURE}.zip
+curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/$PROTOC_ZIP
+unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
+rm -f $PROTOC_ZIP
+}
+
 
 ```console
 {
