@@ -42,7 +42,7 @@ rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null
 ```
 
 install the latest version of protoc
-
+```console
 {
 PROTOC_ZIP=protoc-${PROTOC_VERSION}-linux-${PROTOC_ARCHITECTURE}.zip
 curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/$PROTOC_ZIP
@@ -50,7 +50,7 @@ unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
 rm -f $PROTOC_ZIP
 }
-
+```
 
 ```console
 {
