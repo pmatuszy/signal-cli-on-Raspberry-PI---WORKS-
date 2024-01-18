@@ -7,13 +7,13 @@ After many attempts I finally wrote the procedure which you can just follow and 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
 export VERSION=0.11.6
-katalog_do_kompilowania_temp=/tmp
+temp_catalog=/tmp
 ```
 
 ```console
 (
 echo ; echo "VERSION = $VERSION" 
-echo "katalog_do_kompilowania_temp = $katalog_do_kompilowania_temp" ; echo 
+echo "temp_catalog = $temp_catalog" ; echo 
 )
 ```
 
@@ -49,30 +49,30 @@ curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch
 export PATH=$PATH:$HOME/.cargo/bin
 ```
 ```console
-mkdir -p ${katalog_do_kompilowania_temp}/signal-cli-install && cd ${katalog_do_kompilowania_temp}/signal-cli-install
+mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-install
 export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g')
 echo ; echo "LIBVERSION = $LIBVERSION" ; echo 
 ```
 ```console
 wget https://github.com/signalapp/libsignal/archive/refs/tags/v"${LIBVERSION}".tar.gz ; echo $?
-mv -v v"${LIBVERSION}".tar.gz ${katalog_do_kompilowania_temp}/signal-cli-install
-tar xzf ${katalog_do_kompilowania_temp}/signal-cli-install/v"${LIBVERSION}".tar.gz -C ${katalog_do_kompilowania_temp}/signal-cli-install/ && mv ${katalog_do_kompilowania_temp}/signal-cli-install/libsignal-"${LIBVERSION}" libsignal
-rm -v ${katalog_do_kompilowania_temp}/signal-cli-install/v"${LIBVERSION}".tar*
+mv -v v"${LIBVERSION}".tar.gz ${temp_catalog}/signal-cli-install
+tar xzf ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar.gz -C ${temp_catalog}/signal-cli-install/ && mv ${temp_catalog}/signal-cli-install/libsignal-"${LIBVERSION}" libsignal
+rm -v ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar*
 cd libsignal/java
-sed -i "s/include ':android'//" ${katalog_do_kompilowania_temp}/signal-cli-install/libsignal/java/settings.gradle
-${katalog_do_kompilowania_temp}/signal-cli-install/libsignal/java/build_jni.sh desktop
+sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/java/settings.gradle
+${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop
 zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so
-zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${katalog_do_kompilowania_temp}/signal-cli-install/libsignal/target/release/libsignal_jni.so
+zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so
 ```
 
 ```console
 mkdir -p /usr/java/packages/lib
 ```
 ```console
-cp -v ${katalog_do_kompilowania_temp}/signal-cli-install/libsignal/target/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
+cp -v ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
 ```
 ```console
-rm -rv ${katalog_do_kompilowania_temp}/signal-cli-install
+rm -rv ${temp_catalog}/signal-cli-install
 ```
 ```console
 (
