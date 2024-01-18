@@ -10,6 +10,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
 export VERSION=0.12.7
 temp_catalog=/tmp
 }
+
 ```
 
 ```console
@@ -17,6 +18,7 @@ temp_catalog=/tmp
 echo ; echo "VERSION = $VERSION" 
 echo "temp_catalog = $temp_catalog" ; echo 
 )
+
 ```
 
 ```console
@@ -24,11 +26,15 @@ echo "temp_catalog = $temp_catalog" ; echo
 apt install -y curl zip protobuf-compiler clang libclang-dev cmake make
 apt install -y openjdk-17-jdk
 )
+
 ```
 
 ```console
+{
 cd /opt
 rm -v signal-cli-"${VERSION}"-Linux.tar.gz* /opt/signal-cli 2>/dev/null
+}
+
 ```
 
 ```console
