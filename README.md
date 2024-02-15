@@ -44,31 +44,31 @@ rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null
 install the latest version of protoc
 ```console
 {
-PROTOC_ZIP=protoc-${PROTOC_VERSION}-linux-${PROTOC_ARCHITECTURE}.zip
-curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/$PROTOC_ZIP
-unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
-unzip -o $PROTOC_ZIP -d /usr/local 'include/*'
-rm -f $PROTOC_ZIP
+PROTOC_ZIP=protoc-${PROTOC_VERSION}-linux-${PROTOC_ARCHITECTURE}.zip ;
+curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC_VERSION}/$PROTOC_ZIP ;
+unzip -o $PROTOC_ZIP -d /usr/local bin/protoc ;
+unzip -o $PROTOC_ZIP -d /usr/local 'include/*' ;
+rm -f $PROTOC_ZIP ;
 }
 ```
 
 ```console
 {
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}".tar.gz
-tar xf signal-cli-"${VERSION}".tar.gz -C /opt
-rm -v signal-cli-"${VERSION}".tar.gz
+tar xf signal-cli-"${VERSION}".tar.gz -C /opt ; 
+rm -v signal-cli-"${VERSION}".tar.gz ;
 }
 #
 ```
 ```console
 (
-ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/
-ln -s /opt/signal-cli-"${VERSION}" /opt/signal-cli
-ls -l /usr/local/bin/signal-cli /opt/signal-cli
+ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/ ;
+ln -s /opt/signal-cli-"${VERSION}" /opt/signal-cli ;
+ls -l /usr/local/bin/signal-cli /opt/signal-cli ;
 )
 ```
 ```console
-curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch64-unknown-linux-gnu -y
+curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch64-unknown-linux-gnu -y ;
 ```
 
 ```console
@@ -76,9 +76,9 @@ export PATH=$PATH:$HOME/.cargo/bin
 ```
 ```console
 {
-mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-install
-export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g')
-echo ; echo "LIBVERSION = $LIBVERSION" ; echo
+mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-install ;
+export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g') ;
+echo ; echo "LIBVERSION = $LIBVERSION" ; echo ;
 }
 ```
 ```console
