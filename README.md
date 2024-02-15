@@ -113,3 +113,6 @@ chmod 755 -R /opt/signal-cli-${VERSION} ; echo $?
 chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
 }
 ```
+```
+signal-cli version
+```
