@@ -7,7 +7,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
 {
-export VERSION=0.12.7
+export VERSION=0.12.8
 export PROTOC_VERSION=25.2
 export PROTOC_ARCHITECTURE=aarch_64
 temp_catalog=/tmp
