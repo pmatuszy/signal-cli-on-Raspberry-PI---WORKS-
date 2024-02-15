@@ -7,9 +7,9 @@ After many attempts I finally wrote the procedure which you can just follow and 
  newest version is here: https://github.com/AsamK/signal-cli/releases
 ```console
 {
-export VERSION=0.12.8
-export PROTOC_VERSION=25.2
-export PROTOC_ARCHITECTURE=aarch_64
+export VERSION=0.12.8 ;
+export PROTOC_VERSION=25.2 ;
+export PROTOC_ARCHITECTURE=aarch_64 ;
 temp_catalog=/tmp
 }
 download the latest version of protoc from:
@@ -19,7 +19,7 @@ https://github.com/protocolbuffers/protobuf/releases
 
 ```console
 {
-echo ; echo "VERSION = $VERSION" 
+echo ; echo "VERSION = $VERSION"  ;
 echo "temp_catalog = $temp_catalog" ; echo 
 }
 
@@ -27,16 +27,16 @@ echo "temp_catalog = $temp_catalog" ; echo
 
 ```console
 {
-apt install -y curl zip protobuf-compiler clang libclang-dev cmake make
-apt install -y openjdk-17-jdk
+apt install -y curl zip protobuf-compiler clang libclang-dev cmake make ;
+apt install -y openjdk-17-jdk ;
 }
 
 ```
 
 ```console
 {
-cd /opt
-rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null
+cd /opt ;
+rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null ;
 }
 
 ```
@@ -84,15 +84,15 @@ echo ; echo "LIBVERSION = $LIBVERSION" ; echo ;
 ```
 ```console
 {
-wget https://github.com/signalapp/libsignal/archive/refs/tags/v"${LIBVERSION}".tar.gz ; echo $?
-mv -v v"${LIBVERSION}".tar.gz ${temp_catalog}/signal-cli-install
-tar xzf ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar.gz -C ${temp_catalog}/signal-cli-install/ && mv ${temp_catalog}/signal-cli-install/libsignal-"${LIBVERSION}" libsignal
-rm -v ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar*
-cd libsignal/java
-sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/java/settings.gradle
-${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop
-zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so
-zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so
+wget https://github.com/signalapp/libsignal/archive/refs/tags/v"${LIBVERSION}".tar.gz ; echo $? ;
+mv -v v"${LIBVERSION}".tar.gz ${temp_catalog}/signal-cli-install ;
+tar xzf ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar.gz -C ${temp_catalog}/signal-cli-install/ && mv ${temp_catalog}/signal-cli-install/libsignal-"${LIBVERSION}" libsignal ;
+rm -v ${temp_catalog}/signal-cli-install/v"${LIBVERSION}".tar* ;
+cd libsignal/java ;
+sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/java/settings.gradle ;
+${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop ;
+zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so ;
+zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so ;
 }
 ```
 
