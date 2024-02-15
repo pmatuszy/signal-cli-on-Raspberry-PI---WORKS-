@@ -50,6 +50,7 @@ unzip -o $PROTOC_ZIP -d /usr/local bin/protoc ;
 unzip -o $PROTOC_ZIP -d /usr/local 'include/*' ;
 rm -f $PROTOC_ZIP ;
 }
+
 ```
 
 ```console
@@ -58,7 +59,7 @@ wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-
 tar xf signal-cli-"${VERSION}".tar.gz -C /opt ; 
 rm -v signal-cli-"${VERSION}".tar.gz ;
 }
-#
+
 ```
 ```console
 (
