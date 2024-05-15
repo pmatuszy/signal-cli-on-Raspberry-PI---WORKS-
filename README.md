@@ -8,11 +8,11 @@ After many attempts I finally wrote the procedure which you can just follow and 
  # download the latest version of protoc from:
 # https://github.com/protocolbuffers/protobuf/releases
 ```console
-export PROTOC_ARCHITECTURE=aarch_64 ;
-export PROTOC_ARCHITECTURE=x86_64 ;
+
 {
 export VERSION=0.13.3 ;
 export PROTOC_VERSION=26.1 ;
+export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
 temp_catalog=/tmp
 }
 
