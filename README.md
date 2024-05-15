@@ -12,7 +12,7 @@ export PROTOC_ARCHITECTURE=aarch_64 ;
 export PROTOC_ARCHITECTURE=x86_64 ;
 {
 export VERSION=0.13.3 ;
-export PROTOC_VERSION=25.2 ;
+export PROTOC_VERSION=26.1 ;
 temp_catalog=/tmp
 }
 
