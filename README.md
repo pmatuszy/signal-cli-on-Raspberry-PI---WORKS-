@@ -5,15 +5,17 @@ Instructions how to install signal-cli on Raspberry Pi - this one WORKS
 After many attempts I finally wrote the procedure which you can just follow and get your signal-cli 
 
  newest version is here: https://github.com/AsamK/signal-cli/releases
+ # download the latest version of protoc from:
+# https://github.com/protocolbuffers/protobuf/releases
 ```console
+export PROTOC_ARCHITECTURE=aarch_64 ;
+export PROTOC_ARCHITECTURE=x86_64 ;
 {
 export VERSION=0.13.3 ;
 export PROTOC_VERSION=25.2 ;
-export PROTOC_ARCHITECTURE=aarch_64 ;
 temp_catalog=/tmp
 }
-# download the latest version of protoc from:
-# https://github.com/protocolbuffers/protobuf/releases
+
 ```
 
 ```console
