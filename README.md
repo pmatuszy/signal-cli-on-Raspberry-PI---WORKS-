@@ -80,6 +80,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 ```console
 {
 mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-install ;
+# https://github.com/signalapp/libsignal/releases - currently 0.61.0
 export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g') ;
 echo ; echo "LIBVERSION = $LIBVERSION" ; echo ;
 }
