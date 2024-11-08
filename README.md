@@ -63,11 +63,11 @@ rm -v signal-cli-"${VERSION}".tar.gz ;
 
 ```
 ```console
-(
+{
 ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/ ;
 ln -s /opt/signal-cli-"${VERSION}" /opt/signal-cli ;
 ls -l /usr/local/bin/signal-cli /opt/signal-cli ;
-)
+}
 ```
 ```console
 curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch64-unknown-linux-gnu -y ;
