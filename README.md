@@ -29,7 +29,7 @@ echo "temp_catalog = $temp_catalog" ; echo
 ```console
 {
 apt install -y curl zip protobuf-compiler clang libclang-dev cmake make ;
-apt install -y openjdk-17-jdk ;
+apt install -y openjdk-21-jdk ;
 }
 
 ```
