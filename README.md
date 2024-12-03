@@ -13,8 +13,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
 export VERSION=0.13.10 ;
 export PROTOC_VERSION=29.0 ;
 export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
-export temp_catalog=/tmp
-export temp_catalog=/mnt/luks-RaidSonicA/skasujto
+export temp_catalog=/mnt/signal-temp
 }
 
 ```
