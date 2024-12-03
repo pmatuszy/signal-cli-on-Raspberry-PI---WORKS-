@@ -94,7 +94,7 @@ cd libsignal/java ;
 sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/java/settings.gradle ;
 ${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop ;
 zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so ;
-zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so ;
+zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so ;
 }
 ```
 
@@ -102,7 +102,7 @@ zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal
 mkdir -p /usr/java/packages/lib
 ```
 ```console
-cp -v ${temp_catalog}/signal-cli-install/libsignal/target/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
+cp -v ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
 ```
 ```console
 rm -rv ${temp_catalog}/signal-cli-install
