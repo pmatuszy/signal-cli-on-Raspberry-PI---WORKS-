@@ -11,7 +11,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
 
 {
 export VERSION=0.13.15 ;
-export PROTOC_VERSION=29.0 ;
+export PROTOC_VERSION=31.1 ;
 export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
 export temp_catalog=/mnt/signal-temp
 }
