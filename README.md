@@ -10,7 +10,7 @@ After many attempts I finally wrote the procedure which you can just follow and 
 ```console
 
 {
-export VERSION=0.13.10 ;
+export VERSION=0.13.15 ;
 export PROTOC_VERSION=29.0 ;
 export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
 export temp_catalog=/mnt/signal-temp
