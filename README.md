@@ -14,6 +14,7 @@ export VERSION=0.13.21 ;
 export PROTOC_VERSION=33.0 ;
 export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
 export temp_catalog=/mnt/signal-temp
+echo ; echo part 1 ; echo 
 }
 
 ```
@@ -22,6 +23,7 @@ export temp_catalog=/mnt/signal-temp
 {
 echo ; echo "VERSION = $VERSION"  ;
 echo "temp_catalog = $temp_catalog" ; echo 
+echo ; echo part 2 ; echo 
 }
 
 ```
@@ -30,6 +32,7 @@ echo "temp_catalog = $temp_catalog" ; echo
 {
 apt install -y curl zip protobuf-compiler clang libclang-dev cmake make ;
 apt install -y openjdk-21-jdk ;
+echo ; echo part 3 ; echo 
 }
 
 ```
@@ -38,6 +41,7 @@ apt install -y openjdk-21-jdk ;
 {
 cd /opt ;
 rm -v signal-cli-"${VERSION}"-Linux-native.tar.gz* /opt/signal-cli 2>/dev/null ;
+echo ; echo part 4 ; echo 
 }
 
 ```
@@ -50,6 +54,7 @@ curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v${PROTOC
 unzip -o $PROTOC_ZIP -d /usr/local bin/protoc ;
 unzip -o $PROTOC_ZIP -d /usr/local 'include/*' ;
 rm -f $PROTOC_ZIP ;
+echo ; echo part 5 ; echo 
 }
 
 ```
@@ -59,6 +64,7 @@ rm -f $PROTOC_ZIP ;
 wget https://github.com/AsamK/signal-cli/releases/download/v"${VERSION}"/signal-cli-"${VERSION}".tar.gz
 tar xf signal-cli-"${VERSION}".tar.gz -C /opt ; 
 rm -v signal-cli-"${VERSION}".tar.gz ;
+echo ; echo part 6 ; echo 
 }
 
 ```
@@ -67,14 +73,21 @@ rm -v signal-cli-"${VERSION}".tar.gz ;
 ln -sf /opt/signal-cli-"${VERSION}"/bin/signal-cli /usr/local/bin/ ;
 ln -s /opt/signal-cli-"${VERSION}" /opt/signal-cli ;
 ls -l /usr/local/bin/signal-cli /opt/signal-cli ;
+echo ; echo part 7 ; echo 
 }
 ```
 ```console
+{
 curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch64-unknown-linux-gnu -y ;
+echo ; echo part 8 ; echo 
+}
 ```
 
 ```console
+{
 export PATH=$PATH:$HOME/.cargo/bin
+echo ; echo part 9 ; echo
+}
 ```
 ```console
 {
@@ -82,6 +95,7 @@ mkdir -p ${temp_catalog}/signal-cli-install && cd ${temp_catalog}/signal-cli-ins
 # https://github.com/signalapp/libsignal/releases - currently 0.61.0
 export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth 1 -name 'libsignal-client-*' | sed -E 's/\/opt\/signal-.*libsignal-client-//g' | sed -E 's/.jar//g') ;
 echo ; echo "LIBVERSION = $LIBVERSION" ; echo ;
+echo ; echo part 10 ; echo
 }
 ```
 ```console
@@ -95,17 +109,27 @@ sed -i "s/include ':android'//" ${temp_catalog}/signal-cli-install/libsignal/jav
 ${temp_catalog}/signal-cli-install/libsignal/java/build_jni.sh desktop ;
 zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so ;
 zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so ;
+echo ; echo part 11 ; echo
 }
 ```
 
 ```console
+{
 mkdir -p /usr/java/packages/lib
+echo ; echo part 12 ; echo
+}
 ```
 ```console
+{
 cp -v ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
+echo ; echo part 13 ; echo
+}
 ```
 ```console
+{
 rm -rv ${temp_catalog}/signal-cli-install
+echo ; echo part 14 ; echo
+}
 ```
 ```console
 {
@@ -113,9 +137,13 @@ chown root:root /usr/java/packages/lib/libsignal_jni.so ; echo $?
 chmod 755 /usr/java/packages/lib/libsignal_jni.so ; echo $?
 chmod 755 -R /opt/signal-cli-${VERSION} ; echo $?
 chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
+echo ; echo part 15 ; echo
 }
 ```
 ```
+{
 cd /
 signal-cli version
+echo ; echo part 16 ; echo
+}
 ```
