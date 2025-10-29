@@ -10,8 +10,8 @@ After many attempts I finally wrote the procedure which you can just follow and 
 ```console
 
 {
-export VERSION=0.13.15 ;
-export PROTOC_VERSION=31.1 ;
+export VERSION=0.13.21 ;
+export PROTOC_VERSION=33.0 ;
 export PROTOC_ARCHITECTURE=$(uname --hardware-platform | sed 's/aarch64/aarch_64/')
 export temp_catalog=/mnt/signal-temp
 }
@@ -116,5 +116,6 @@ chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
 }
 ```
 ```
+cd /
 signal-cli version
 ```
