@@ -30,6 +30,7 @@ echo ; echo part 2 ; echo
 
 ```console
 {
+cd
 apt install -y curl zip protobuf-compiler clang libclang-dev cmake make ;
 apt install -y openjdk-21-jdk ;
 echo ; echo part 3 ; echo 
