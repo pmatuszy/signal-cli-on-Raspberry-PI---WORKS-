@@ -76,12 +76,14 @@ ln -s /opt/signal-cli-"${VERSION}" /opt/signal-cli ;
 ls -l /usr/local/bin/signal-cli /opt/signal-cli ;
 echo ; echo part 7 ; echo 
 }
+
 ```
 ```console
 {
 curl https://sh.rustup.rs -sSf | sudo sh -s -- --default-toolchain nightly-aarch64-unknown-linux-gnu -y ;
 echo ; echo part 8 ; echo 
 }
+
 ```
 
 ```console
@@ -89,6 +91,7 @@ echo ; echo part 8 ; echo
 export PATH=$PATH:$HOME/.cargo/bin
 echo ; echo part 9 ; echo
 }
+
 ```
 ```console
 {
@@ -98,6 +101,7 @@ export LIBVERSION=$(find /opt/signal-cli-"${VERSION}"/lib/ -maxdepth 1 -mindepth
 echo ; echo "LIBVERSION = $LIBVERSION" ; echo ;
 echo ; echo part 10 ; echo
 }
+
 ```
 ```console
 {
@@ -112,6 +116,7 @@ zip -d /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar libsignal_jni.so ;
 zip /opt/signal-cli-${VERSION}/lib/libsignal-client-*.jar ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so ;
 echo ; echo part 11 ; echo
 }
+
 ```
 
 ```console
@@ -119,18 +124,21 @@ echo ; echo part 11 ; echo
 mkdir -p /usr/java/packages/lib
 echo ; echo part 12 ; echo
 }
+
 ```
 ```console
 {
 cp -v ${temp_catalog}/signal-cli-install/libsignal/target/aarch*/release/libsignal_jni.so /usr/java/packages/lib ; echo $?
 echo ; echo part 13 ; echo
 }
+
 ```
 ```console
 {
 rm -rv ${temp_catalog}/signal-cli-install
 echo ; echo part 14 ; echo
 }
+
 ```
 ```console
 {
@@ -140,6 +148,7 @@ chmod 755 -R /opt/signal-cli-${VERSION} ; echo $?
 chown root:root -R /opt/signal-cli-${VERSION} ; echo $?
 echo ; echo part 15 ; echo
 }
+
 ```
 ```
 {
@@ -147,4 +156,5 @@ cd /
 signal-cli version
 echo ; echo part 16 ; echo
 }
+
 ```
